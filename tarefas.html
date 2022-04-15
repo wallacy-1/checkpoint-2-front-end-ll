@@ -44,7 +44,12 @@
   <form class="nova-tarefa">
     <div class="not-done "></div>
     <input id="novaTarea" type="text" placeholder="Nova tarefa">
-    <button type="submit">
+    <input class="mr" type="radio" value="true" id="status" name="completed">
+    <label class="mr" for="username">Completo</label>
+    
+    <input class="mr" type="radio" value="false" id="status" name="completed">
+    <label for="username">Pendente</label>
+    <button type="submit" id="adicionarTarea">
       <img src="./assets/plus.png" alt="Adicionar uma nova tarefa">
     </button>
   </form>
@@ -81,7 +86,7 @@
   <ul class="tarefas-terminadas">
 
   </ul>
-
+  <script src="/scripts/cadastro/nova_tarefa.js"></script>
 </body>
 
 </html>
