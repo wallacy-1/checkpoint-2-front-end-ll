@@ -50,6 +50,7 @@ botaoinserir.addEventListener('click', function (evento) {
 
         ).then(
             resultado => {
+                alert('Tarefa criado com sucesso');
                 console.log(resultado);
             }
         )
