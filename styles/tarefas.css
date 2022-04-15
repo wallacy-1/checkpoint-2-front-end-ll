@@ -225,20 +225,41 @@ a {
 }
 
 #skeleton .descricao{
+  background-color: white;
+}
+
+#skeleton p{
+  color: black;
+}
+
+#skeleton .not-done{
+  background-color: white;
+}
+
+#skeleton .not-done:hover{
+  background-color: var(--secondary);
+} 
+
+/* sera usado na historia de animação 
+ #skeleton .descricao{
   background-color: rgb(189, 189, 189);
 }
 #skeleton p{
   background-color: rgb(214, 214, 214);
   color: rgb(214, 214, 214);
 }
+
+#skeleton .not-done{
+  background-color: rgb(189, 189, 189);
+} 
 #skeleton .not-done{
   background-color: rgb(189, 189, 189);
 }
 
-#skeleton{
+ #skeleton{
   animation: trasparencia 1s infinite;
 }
 @keyframes trasparencia {
   0%{ opacity: 0.5;}
   100%{ opacity: 0.8;}
-}
+} */
