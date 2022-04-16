@@ -16,14 +16,14 @@ onload = function(){
 
     fetch(urlexibirtarefa, header).then(
         resultado => {
-            console.log(resultado);
+
             return resultado.json()
 
         }
     )
         .then(
             resultado => {
-                console.log(resultado)
+
                 exibirtarefa(resultado)
             }
         )
