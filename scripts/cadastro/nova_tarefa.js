@@ -25,8 +25,6 @@ botaoinserir.addEventListener('click', function (evento) {
 
     let taskJson = JSON.stringify(task);
 
-    console.log(task.description);
-    console.log(task.completed);
     var tokenjwt = localStorage.getItem("token");
 
     let header = {
@@ -50,7 +48,7 @@ botaoinserir.addEventListener('click', function (evento) {
 
         ).then(
             resultado => {
-                console.log(resultado);
+                alert(`Tarefa: ${task.description} \n Foi criada com SUCESSO !!!`);
             }
         )
 
