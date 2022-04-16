@@ -42,12 +42,13 @@ onload = function(){
 
         listatarefa.forEach(tarefacriada => {
             let tarefa = document.createElement('li');
+            let dataformatada = (moment(tarefacriada.createdAt).format('LLL'));
             tarefa.classList.add('tarefa');
             tarefa.innerHTML = `
                 <div class="not-done"> </div>
                 <div class="descricao">
                     <p class="nome">${tarefacriada.description}</p>
-                    <p class="timestamp">Criada em: ${tarefacriada.createdAt}</p>
+                    <p class="timestamp">Criada em: ${dataformatada}</p>
                 </div >
             `
 
