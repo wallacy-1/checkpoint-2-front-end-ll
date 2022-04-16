@@ -242,3 +242,6 @@ a {
   0%{ opacity: 0.5;}
   100%{ opacity: 0.8;}
 }
+.mr {
+  margin-right: 10px;
+}
