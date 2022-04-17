@@ -181,6 +181,9 @@ a {
   font-size: .9em;
   color: rgb(134, 134, 134);
 }
+.tarefas-pendentes button{
+  margin-left: 10px;
+}
 
 /* Tarefas terminadas ----------------------------------------------------------- */
 
@@ -221,7 +224,7 @@ a {
 
 .tarefas-terminadas .tarefa .descricao .nome {
   color: grey;
-  text-decoration: line-through;
+ /* text-decoration: line-through; */
 }
 
 #skeleton .descricao{
@@ -230,6 +233,12 @@ a {
 
 #skeleton p{
   color: black;
+  width: 30%;
+}
+
+.completed p{
+  color: black;
+  width: 30%;
 }
 
 #skeleton .not-done{
@@ -239,6 +248,10 @@ a {
 #skeleton .not-done:hover{
   background-color: var(--secondary);
 } 
+
+.descricao #button{
+
+}
 
 /* sera usado na historia de animação 
  #skeleton .descricao{

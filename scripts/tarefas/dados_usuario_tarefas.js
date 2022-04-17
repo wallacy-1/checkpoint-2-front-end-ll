@@ -36,7 +36,8 @@ onload = function(){
 
 
     function exibirtarefa(listatarefa) {
-        let skeleton = document.getElementById('skeleton');
+        let pendente = document.getElementById('skeleton');
+        let completed = document.querySelector('.completed')
 
 
 
@@ -44,15 +45,39 @@ onload = function(){
             let tarefa = document.createElement('li');
             let dataformatada = (moment(tarefacriada.createdAt).format('LLL'));
             tarefa.classList.add('tarefa');
-            tarefa.innerHTML = `
+
+            if(tarefacriada.completed == false){
+                tarefa.innerHTML = `
                 <div class="not-done"> </div>
                 <div class="descricao">
                     <p class="nome">${tarefacriada.description}</p>
                     <p class="timestamp">Criada em: ${dataformatada}</p>
+                    <div class="mr">
+                    <button type="submit" id="editar"><ion-icon name="create-outline"></ion-icon></button>
+                    <button type="submit" id="excluir"><ion-icon name="trash-outline"></ion-icon></button>
+                    </div>
+                    
                 </div >
             `
 
-            skeleton.appendChild(tarefa);
+                pendente.appendChild(tarefa);
+
+            }else{
+                tarefa.innerHTML = `
+                <div class="not-done"> </div>
+                <div class="descricao">
+                    <p class="nome">${tarefacriada.description}</p>
+                    <p class="timestamp">Criada em: ${dataformatada}</p>
+                    <div class="mr">
+                    <button type=""submit id="retornar" ><ion-icon name="arrow-undo-outline"></ion-icon></button>
+                    <button type="submit" id="excluir"><ion-icon name="trash-outline"></ion-icon></button>
+                    </div>
+                    
+                    
+                </div >
+            `
+                completed.appendChild(tarefa);
+            }
         });
 
     }
