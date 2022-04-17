@@ -10,7 +10,7 @@ let task = {
 
 botaoinserir.addEventListener('click', function (evento) {
 
-    if (camponovatarefa.value == "") {
+    if (camponovatarefa.value.trim() == "") {
 
         alert('Preencha a descrição corretamente!');
         return;
@@ -37,8 +37,7 @@ botaoinserir.addEventListener('click', function (evento) {
     };
 
     fetch(urlcriartarefa, header)
-        .then
-        (resultado => {
+        .then(resultado => {
             if (resultado.status == 201) {
                 return resultado.json();
             } else {

@@ -16,6 +16,18 @@ a {
   color: white
 }
 
+.hidden{
+  display: none !important;
+}
+
+.d-flex{
+  display: flex;
+}
+
+.btn-icon{
+  background: none;
+}
+
 .user-info {
   display: flex;
   align-items: center;
@@ -234,6 +246,11 @@ a {
 #skeleton p{
   color: black;
   width: 30%;
+}
+
+#skeleton input{
+  color: black;
+  width: 29.5%;
 }
 
 .completed p{
