@@ -1,5 +1,5 @@
 onload = function(){
-
+    segurancaToken();
 
     let urlexibirtarefa = 'https://ctd-todo-api.herokuapp.com/v1/tasks';
 
@@ -51,31 +51,32 @@ onload = function(){
                 <div class="not-done"> </div>
                 <div class="descricao">
                     <p class="nome">${tarefacriada.description}</p>
+                    <input type="text" value="${tarefacriada.description}">
                     <p class="timestamp">Criada em: ${dataformatada}</p>
+
                     <div class="mr">
-                    <button type="submit" id="editar"><ion-icon name="create-outline"></ion-icon></button>
-                    <button type="submit" id="excluir"><ion-icon name="trash-outline"></ion-icon></button>
+                        <button type="submit" id="editar" onclick="editarTarefa(${tarefacriada.id})"><ion-icon name="create-outline"></ion-icon></button>
+                        <button type="submit" id="excluir"><ion-icon name="trash-outline"></ion-icon></button>
                     </div>
                     
-                </div >
-            `
+                </div>`
 
                 pendente.appendChild(tarefa);
 
             }else{
                 tarefa.innerHTML = `
-                <div class="not-done"> </div>
+                <div class="not-done"></div>
                 <div class="descricao">
                     <p class="nome">${tarefacriada.description}</p>
                     <p class="timestamp">Criada em: ${dataformatada}</p>
+
                     <div class="mr">
-                    <button type=""submit id="retornar" ><ion-icon name="arrow-undo-outline"></ion-icon></button>
-                    <button type="submit" id="excluir"><ion-icon name="trash-outline"></ion-icon></button>
+                        <button type=""submit id="retornar" ><ion-icon name="arrow-undo-outline"></ion-icon></button>
+                        <button type="submit" id="excluir"><ion-icon name="trash-outline"></ion-icon></button>
                     </div>
                     
-                    
-                </div >
-            `
+                </div>`
+
                 completed.appendChild(tarefa);
             }
         });
