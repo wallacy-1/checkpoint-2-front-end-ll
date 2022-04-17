@@ -1,5 +1,5 @@
 onload = function(){
-
+    segurancaToken();
 
     let urlexibirtarefa = 'https://ctd-todo-api.herokuapp.com/v1/tasks';
 
