@@ -43,7 +43,7 @@
   <form class="nova-tarefa">
     <div class="not-done "></div>
     <input id="novaTarea" type="text" placeholder="Nova tarefa" maxlength="40">
-    <input class="mr" type="radio" value="true" id="status" name="completed">
+    <input class="mr" type="radio" value="true" id="status" name="completed" checked>
     <label class="mr" for="username">Completo</label>
     
     <input class="mr" type="radio" value="false" id="status" name="completed">
@@ -67,12 +67,15 @@
     </div>
   </ul>
 
-  
-  <script src="/scripts/tarefas/dados_usuario_tarefas.js"></script>
-  <script src="/scripts/tarefas/moment.js"></script>
-  <script src="./scripts/tarefas/deslogar.js"></script>
+
+  <script src="scripts/tarefas/dados_usuario_tarefas.js"></script>
+  <script src="scripts/tarefas/moment.js"></script>
+  <script src="scripts/tarefas/editar_tarefa.js"></script>
+  <script src="scripts/tarefas/deslogar.js"></script>
   <script src="scripts/cadastro/nova_tarefa.js"></script>
   <script src="scripts/seguranca/acesso.js"></script>
+  
+<!-- ion icons-->
   <script  type = "module"  src = "https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script> 
   <script  nomodule  src = "https://unpkg .com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
