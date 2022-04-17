@@ -80,7 +80,7 @@ function fetchEditarTarefa(id) {
 
         ).then(
             resultado => {
-                alert(`Tarefa: ${task.description} \n Foi editada com SUCESSO !!!`);
+                alert(`Tarefa: ${descricao}\nFoi editada com SUCESSO !!!`);
                 localStorage.removeItem("descAnterior");
                 localStorage.removeItem("tf");
                 location.reload();
