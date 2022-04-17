@@ -181,6 +181,9 @@ a {
   font-size: .9em;
   color: rgb(134, 134, 134);
 }
+.tarefas-pendentes button{
+  margin-left: 10px;
+}
 
 /* Tarefas terminadas ----------------------------------------------------------- */
 
@@ -221,26 +224,59 @@ a {
 
 .tarefas-terminadas .tarefa .descricao .nome {
   color: grey;
-  text-decoration: line-through;
+ /* text-decoration: line-through; */
 }
 
 #skeleton .descricao{
+  background-color: white;
+}
+
+#skeleton p{
+  color: black;
+  width: 30%;
+}
+
+.completed p{
+  color: black;
+  width: 30%;
+}
+
+#skeleton .not-done{
+  background-color: white;
+}
+
+#skeleton .not-done:hover{
+  background-color: var(--secondary);
+} 
+
+.descricao #button{
+
+}
+
+/* sera usado na historia de animação 
+ #skeleton .descricao{
   background-color: rgb(189, 189, 189);
 }
 #skeleton p{
   background-color: rgb(214, 214, 214);
   color: rgb(214, 214, 214);
 }
+
+#skeleton .not-done{
+  background-color: rgb(189, 189, 189);
+} 
 #skeleton .not-done{
   background-color: rgb(189, 189, 189);
 }
 
-#skeleton{
+ #skeleton{
   animation: trasparencia 1s infinite;
 }
 @keyframes trasparencia {
   0%{ opacity: 0.5;}
   100%{ opacity: 0.8;}
+} */
+
 }
 .mr {
   margin-right: 10px;
