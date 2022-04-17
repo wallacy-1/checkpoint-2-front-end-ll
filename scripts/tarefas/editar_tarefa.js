@@ -45,6 +45,10 @@ function fetchEditarTarefa(id) {
         return;
     }
 
+    if (!confirm(`Tem certeza que deseja alterar \nDescrição antiga: ${localStorage.getItem("descAnterior")} \nPara: ${descricao}`)) {
+        return;
+    }
+
     let linkEditarTarefa = `https://ctd-todo-api.herokuapp.com/v1/tasks/${id}`;
 
     let body = {
