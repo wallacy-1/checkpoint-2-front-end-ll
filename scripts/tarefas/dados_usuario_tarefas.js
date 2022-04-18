@@ -76,7 +76,7 @@ onload = function(){
                     <p class="timestamp">Criada em: ${dataformatada}</p>
 
                     <div class="mr">
-                        <button type=""submit class="btn-icon" id="retornar" ><ion-icon name="arrow-undo-outline"></ion-icon></button>
+                        <button type=""submit class="btn-icon" id="retornar"><ion-icon name="arrow-undo-outline"></ion-icon></button>
                         <button type="submit" class="btn-icon" id="excluir" onclick="excluirTarefa(${tarefacriada.id})" ><ion-icon name="trash-outline"></ion-icon></button>
                     </div>
                     

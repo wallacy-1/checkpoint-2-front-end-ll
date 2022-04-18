@@ -1,6 +1,10 @@
 
 function excluirTarefa(id) {
 
+    let taskDlt = confirm("Deseja mesmo excluir?");
+    
+    if (taskDlt){
+
     let linkExcluir = `https://ctd-todo-api.herokuapp.com/v1/tasks/${id}`;
 
     let tokenjwt = localStorage.getItem('token');
@@ -32,4 +36,4 @@ function excluirTarefa(id) {
         .catch(erro => { 
             alert(erro);
         })
-    }
+    }}
