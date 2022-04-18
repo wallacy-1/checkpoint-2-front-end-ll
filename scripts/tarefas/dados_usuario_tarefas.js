@@ -1,6 +1,6 @@
 onload = function(){
     segurancaToken();
-
+    dadosUsuario();
     let urlexibirtarefa = 'https://ctd-todo-api.herokuapp.com/v1/tasks';
 
     let tokenjwt = localStorage.getItem('token');
