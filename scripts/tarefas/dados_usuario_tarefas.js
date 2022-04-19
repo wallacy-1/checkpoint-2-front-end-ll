@@ -72,12 +72,12 @@ onload = function(){
                 tarefa.innerHTML = `
                 <div class="not-done"></div>
                 <div class="descricao">
-                    <p class="nome">${tarefacriada.description}</p>
+                    <p class="nome tf${tarefacriada.id}">${tarefacriada.description}</p>
                     <p class="timestamp">Criada em: ${dataformatada}</p>
 
                     <div class="mr">
-                        <button type=""submit class="btn-icon" id="retornar"><ion-icon name="arrow-undo-outline"></ion-icon></button>
-                        <button type="submit" class="btn-icon" id="excluir" onclick="excluirTarefa(${tarefacriada.id})" ><ion-icon name="trash-outline"></ion-icon></button>
+                        <button type="submit" class="btn-icon" id="retornar" onclick ="retornarTarefa(${tarefacriada.id})"><ion-icon name="arrow-undo-outline"></ion-icon></button>
+                        <button type="submit" class="btn-icon" id="excluir" onclick="excluirTarefa(${tarefacriada.id})"><ion-icon name="trash-outline"></ion-icon></button>
                     </div>
                     
                 </div>`
