@@ -47,7 +47,4 @@ fetch(link, header)
    }
 )
 
-
-
-console.log(tokenjwt)
 }
