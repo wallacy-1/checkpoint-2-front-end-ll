@@ -25,6 +25,7 @@ onload = function(){
             resultado => {
 
                 exibirtarefa(resultado)
+                
             }
         )
 
@@ -57,7 +58,7 @@ onload = function(){
                     <div class="tf${tarefacriada.id}">
                         <button type="submit" class="btn-icon" id="check" onclick="checkTarefa(${tarefacriada.id})"><ion-icon name="checkmark-outline"></ion-icon></button>
                         <button type="submit" class="btn-icon" id="editar" onclick="showEditarTarefa(${tarefacriada.id})"><ion-icon name="create-outline"></ion-icon></button>
-                        <button type="submit" class="btn-icon" id="excluir"><ion-icon name="trash-outline"></ion-icon></button>
+                        <button type="submit" class="btn-icon" id="excluir" onclick="excluirTarefa(${tarefacriada.id})"><ion-icon name="trash-outline"></ion-icon></button>
                     </div>
                     <div class="tf${tarefacriada.id} hidden d-flex">
                         <button type="submit" id="enviar" class="btn-icon" onclick="fetchEditarTarefa(${tarefacriada.id})"><ion-icon name="airplane-outline"></ion-icon></button>
@@ -72,12 +73,12 @@ onload = function(){
                 tarefa.innerHTML = `
                 <div class="not-done"></div>
                 <div class="descricao">
-                    <p class="nome">${tarefacriada.description}</p>
+                    <p class="nome tf${tarefacriada.id}">${tarefacriada.description}</p>
                     <p class="timestamp">Criada em: ${dataformatada}</p>
 
                     <div class="mr">
-                        <button type=""submit class="btn-icon" id="retornar" ><ion-icon name="arrow-undo-outline"></ion-icon></button>
-                        <button type="submit" class="btn-icon" id="excluir"><ion-icon name="trash-outline"></ion-icon></button>
+                        <button type="submit" class="btn-icon" id="retornar" onclick ="retornarTarefa(${tarefacriada.id})"><ion-icon name="arrow-undo-outline"></ion-icon></button>
+                        <button type="submit" class="btn-icon" id="excluir" onclick="excluirTarefa(${tarefacriada.id})"><ion-icon name="trash-outline"></ion-icon></button>
                     </div>
                     
                 </div>`
