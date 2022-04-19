@@ -55,6 +55,7 @@ onload = function(){
                     <p class="timestamp">Criada em: ${dataformatada}</p>
 
                     <div class="tf${tarefacriada.id}">
+                        <button type="submit" class="btn-icon" id="check" onclick="checkTarefa(${tarefacriada.id})"><ion-icon name="checkmark-outline"></ion-icon></button>
                         <button type="submit" class="btn-icon" id="editar" onclick="showEditarTarefa(${tarefacriada.id})"><ion-icon name="create-outline"></ion-icon></button>
                         <button type="submit" class="btn-icon" id="excluir"><ion-icon name="trash-outline"></ion-icon></button>
                     </div>
