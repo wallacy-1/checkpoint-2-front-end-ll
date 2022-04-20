@@ -25,10 +25,11 @@ let loginUsuario = {
  
 //Executa ao clicar no botão de Acessar
     botaoSalvar.addEventListener('click', function (evento) {
+        evento.preventDefault();
 
     //Se a validação passar, se for true o retorno da função....
     if (validaTelaDeLogin()) {
-        evento.preventDefault();
+        mostrarSpinner();
         //Normalizando - Retirando os espaços em branco
         campoEmailLoginNormalizado = retiraEspacosDeUmValorInformado(campoEmailLogin.value);
         campoSenhaLoginNormalizado = retiraEspacosDeUmValorInformado(campoSenhaLogin.value);
@@ -55,6 +56,7 @@ let loginUsuario = {
             if(resultado.status == 201){ // se tiver tudo certo retorna 200
                 return resultado.json();
             }else{
+                ocultarSpinner();
                 throw `Email ou senha invalidos :( \ncodigo: ${resultado.status}`;
             }
         }

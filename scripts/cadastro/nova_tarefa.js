@@ -48,6 +48,7 @@ botaoinserir.addEventListener('click', function (evento) {
         ).then(
             resultado => {
                 alert(`Tarefa: ${task.description} \n Foi criada com SUCESSO !!!`);
+                location.href = "tarefas.html"; //se deu tudo certo so manda o usuario para a tela login.html 
             }
         )
 

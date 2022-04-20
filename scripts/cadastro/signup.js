@@ -18,6 +18,8 @@ botaocriar.addEventListener('click', function (evento) {
     
     evento.preventDefault(); // não atualizar a pagina
 
+    mostrarSpinner();
+
     CadastroUsuario.firstName = camponome.value; //o campo fristname do cadastroUsuario vai ser preenchido com o valor do campo camponome.value
     CadastroUsuario.lastName = campoapelido.value;
     CadastroUsuario.email = campoEmail.value;
@@ -42,13 +44,14 @@ botaocriar.addEventListener('click', function (evento) {
             if(resultado.status == 201){ // se tiver tudo certo retorna 201
                 return resultado.json(); // deu tudo certo ? então envia a resposta pro outro then em formato json
             }else{
+                ocultarSpinner();
                 throw `preencha os campos corretamente \ncodigo: ${resultado.status}`; // joga um throw para o catch pegar
             }
         }
     )
     .then(
         resultado => {
-            location.href = "login.html"; //se deu tudo certo so manda o usuario para a tela login.html 
+            location.href = "index.html"; //se deu tudo certo so manda o usuario para a tela login.html 
         }
     )
     .catch(
