@@ -1,5 +1,8 @@
 onload = function(){
-    segurancaToken();
+    if(segurancaToken() == true){
+        return;
+    }
+    
     dadosUsuario();
 
     if(localStorage.getItem("login") == 1){
@@ -64,7 +67,6 @@ onload = function(){
     function exibirtarefa(listatarefa) {
         let pendente = document.getElementById('skeleton');
         let completed = document.querySelector('.completed')
-
 
 
         listatarefa.forEach(tarefacriada => {

@@ -7,5 +7,7 @@ function segurancaToken(){
         }).then(function(){
             location.href = "index.html";
           })
+          return true;
     }
+    return false;
 }
