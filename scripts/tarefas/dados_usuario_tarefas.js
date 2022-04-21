@@ -2,8 +2,9 @@ onload = function(){
     if(segurancaToken() == true){
         return;
     }
-    
+
     dadosUsuario();
+    mostrarSkeletons();
 
     if(localStorage.getItem("login") == 1){
         localStorage.removeItem("login");
@@ -69,6 +70,8 @@ onload = function(){
         let completed = document.querySelector('.completed')
 
 
+        removerSkeletons();
+        
         listatarefa.forEach(tarefacriada => {
             let tarefa = document.createElement('li');
             let dataformatada = (moment(tarefacriada.createdAt).format('LLL'));
@@ -92,7 +95,6 @@ onload = function(){
                     </div>
                     
                 </div>`
-
                 pendente.appendChild(tarefa);
 
             }else{
@@ -107,7 +109,6 @@ onload = function(){
                     </div>
                     
                 </div>`
-
                 completed.appendChild(tarefa);
             }
         });
