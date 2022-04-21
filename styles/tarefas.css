@@ -307,30 +307,22 @@ ion-icon {
 .descricao #button{
 
 }
-
-/* sera usado na historia de animação 
- #skeleton .descricao{
+/* skeleton */
+ #skeleton .descricao_skeleton{
   background-color: rgb(189, 189, 189);
 }
-#skeleton p{
+#skeleton .p_skeleton{
   background-color: rgb(214, 214, 214);
   color: rgb(214, 214, 214);
 }
 
-#skeleton .not-done{
-  background-color: rgb(189, 189, 189);
-} 
-#skeleton .not-done{
-  background-color: rgb(189, 189, 189);
-}
-
- #skeleton{
+#skeleton .descricao_skeleton, #skeleton .p_skeleton{
   animation: trasparencia 1s infinite;
 }
 @keyframes trasparencia {
   0%{ opacity: 0.5;}
   100%{ opacity: 0.8;}
-} */
+} 
 
 .mr {
   margin-right: 10px;
