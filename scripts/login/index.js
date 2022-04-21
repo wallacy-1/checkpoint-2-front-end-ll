@@ -12,75 +12,79 @@ let emailEValido = false;
  botaoSalvar.setAttribute('disabled', true);
  botaoSalvar.innerText = "Bloqueado";
 
-
 //Cria o objeto que representa o login do usuário
 let loginUsuario = {
     email: "",
     password: ""
 };
    
-
-  
-  
- 
 //Executa ao clicar no botão de Acessar
     botaoSalvar.addEventListener('click', function (evento) {
         evento.preventDefault();
 
     //Se a validação passar, se for true o retorno da função....
     if (validaTelaDeLogin()) {
-        mostrarSpinner();
-        //Normalizando - Retirando os espaços em branco
-        campoEmailLoginNormalizado = retiraEspacosDeUmValorInformado(campoEmailLogin.value);
-        campoSenhaLoginNormalizado = retiraEspacosDeUmValorInformado(campoSenhaLogin.value);
-        campoEmailLoginNormalizado = converteValorRecebidoEmMinusculo(campoEmailLoginNormalizado);
+            mostrarSpinner();
+            //Normalizando - Retirando os espaços em branco
+            campoEmailLoginNormalizado = retiraEspacosDeUmValorInformado(campoEmailLogin.value);
+            campoSenhaLoginNormalizado = retiraEspacosDeUmValorInformado(campoSenhaLogin.value);
+            campoEmailLoginNormalizado = converteValorRecebidoEmMinusculo(campoEmailLoginNormalizado);
 
-        loginUsuario.email = campoEmailLoginNormalizado;
-        loginUsuario.password = campoSenhaLoginNormalizado;
+            loginUsuario.email = campoEmailLoginNormalizado;
+            loginUsuario.password = campoSenhaLoginNormalizado;
 
-        let loginUsuarioJson = JSON.stringify(loginUsuario);
-        let urlappbaselogin = "https://ctd-todo-api.herokuapp.com/v1/users/login";
-    
-        let emailLogin = {
-            method: "POST",
-            headers : {
-                'content-type':'application/json'
-            },
-            body : loginUsuarioJson
-        };
-    
-
-    fetch(urlappbaselogin, emailLogin)
-    .then(
-        resultado => {
-            if(resultado.status == 201){ // se tiver tudo certo retorna 200
-                return resultado.json();
-            }else{
-                ocultarSpinner();
-                throw `Email ou senha invalidos :( \ncodigo: ${resultado.status}`;
-            }
-        }
-    )
-    .then(
-        resultado => {
-            // crie um localstorage com o nome "token" e o valor resultado.jwt que esta com o token que a api retornou
-            localStorage.setItem("token", resultado.jwt);
-            // direcionar para tarefas.html
-            location.href = "tarefas.html";
-        }
-    )
-    .catch(
-        erro =>{
-            alert(erro);
-        }
-    );
-
+            let loginUsuarioJson = JSON.stringify(loginUsuario);
+            let urlappbaselogin = "https://ctd-todo-api.herokuapp.com/v1/users/login";
+        
+            let emailLogin = {
+                method: "POST",
+                headers : {
+                    'content-type':'application/json'
+                },
+                body : loginUsuarioJson
+            };
         
 
-    //Se a validação NÃO passar, se for false o retorno da função....
+        fetch(urlappbaselogin, emailLogin)
+        .then(
+            resultado => {
+                if(resultado.status == 201){ // se tiver tudo certo retorna 200
+                    return resultado.json();
+                }else{
+                    ocultarSpinner();
+                    throw `Email ou senha invalidos :( \ncodigo: ${resultado.status}`;
+                }
+            }
+        )
+        .then(
+            resultado => {
+                // crie um localstorage com o nome "token" e o valor resultado.jwt que esta com o token que a api retornou
+                localStorage.setItem("token", resultado.jwt);
+                localStorage.setItem('login', 1); // cria local storage pra mandar sweet alert de login
+                // direcionar para tarefas.html
+                location.href = "tarefas.html";
+            }
+        )
+        .catch(
+            erro =>{
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Oops...',
+                    text: erro
+                })
+            }
+        );
+
+            
+
+        //Se a validação NÃO passar, se for false o retorno da função....
     } else {
         evento.preventDefault();
-        alert("Ambas as informações devem ser preenchidas");
+        Swal.fire({
+            icon: 'warning',
+            title: 'Oops...',
+            text: "Ambas as informações devem ser preenchidas"
+          })
     }
 
 });

@@ -1,9 +1,9 @@
 // pegar os campo no html
-let camponome = document.getElementById('inputnomeuser');
-let campoapelido = document.getElementById('inputapelidouser');
+let campoNome = document.getElementById('inputnomeuser');
+let campoSobrenome = document.getElementById('inputsobrenomeuser');
 let campoEmail = document.getElementById('inputemailuser');
 let camposenha = document.getElementById('inputsenhauser');
-let camporepetirsenha = document.getElementById('inputsenhauserrep');
+let campoRepetirSenha = document.getElementById('inputsenhauserrep');
 let botaocriar = document.getElementById('botaocriar');
 
 // criar o objeto para o body vazio, dados do body e o body na documentação da api 
@@ -13,17 +13,61 @@ let CadastroUsuario = {
     email: "",
     password: ""
 }
+
+function ValidateEmail(mail) 
+{
+ if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
+  {
+    return (true)
+  }
+    Swal.fire({
+        icon: 'warning',
+        title: 'CAMPO EMAIL',
+        text: "Email invalido :("
+    })
+    return (false)
+}
+
+function validarSenha(){
+    if(camposenha.value !== campoRepetirSenha.value){
+        Swal.fire({
+            icon: 'warning',
+            title: 'CAMPO SENHA',
+            text: "O campo repetir senha não esta igual ao campo senha!"
+          })
+    }
+}
+
 // ao clicar no botao criar execute a function
 botaocriar.addEventListener('click', function (evento) {
     
     evento.preventDefault(); // não atualizar a pagina
 
     mostrarSpinner();
+    // verificação segundaria dos inputs ( vai que de alguma forma ele burla a 1 )
+    ValidateEmail(campoEmail.value);
+    validarSenha();
 
-    CadastroUsuario.firstName = camponome.value; //o campo fristname do cadastroUsuario vai ser preenchido com o valor do campo camponome.value
-    CadastroUsuario.lastName = campoapelido.value;
+    try {
+        // verifica se esta vazio os valores
+        verificarSeEstaVazio(campoNome.value, "nome");
+        verificarSeEstaVazio(campoSobrenome.value, "Sobrenome");
+        verificarSeEstaVazio(camposenha.value, "senha");
+        verificarSeEstaVazio(campoRepetirSenha.value, "repetir senha");
+    } catch (error) {
+        ocultarSpinner();
+        Swal.fire({
+            icon: 'warning',
+            title: 'Oops...',
+            text: error
+          })
+        return;
+    }
+
+    CadastroUsuario.firstName = campoNome.value; //o campo fristname do cadastroUsuario vai ser preenchido com o valor do campo campoNome.value
+    CadastroUsuario.lastName = campoSobrenome.value;
     CadastroUsuario.email = campoEmail.value;
-    CadastroUsuario.password = camporepetirsenha.value;
+    CadastroUsuario.password = campoRepetirSenha.value;
 
     //o cadastrousuario era um objeto agora deixamos ele como json 
     let CadastroBodyJson = JSON.stringify(CadastroUsuario);
@@ -56,7 +100,11 @@ botaocriar.addEventListener('click', function (evento) {
     )
     .catch(
         erro =>{ // se deu erro cai aqui no catch e volta com um alert msg do erro
-            alert(erro);
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: erro
+              })
         }
     );
 

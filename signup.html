@@ -19,7 +19,7 @@
 <body>
 
   <div class="left">
-    <img src="./assets/pessoa-signup.png" alt="">
+    <img src="assets/pessoa-signup.png" alt="">
   </div>
   <div class="right">
     <form>
@@ -32,12 +32,12 @@
         <input id="inputnomeuser"type="text">
       </label>
       <label>
-        Apelido:
-        <input id="inputapelidouser" type="text">
+        Sobrenome:
+        <input id="inputsobrenomeuser" type="text">
       </label>
       <label>
         Email:
-        <input  id="inputemailuser" type="text">
+        <input  id="inputemailuser" type="text" onblur="ValidateEmail(this.value)">
       </label>
       <label>
         Senha:
@@ -45,7 +45,7 @@
       </label>
       <label>
         Repetir senha:
-        <input id="inputsenhauserrep" type="password">
+        <input id="inputsenhauserrep" type="password" onblur="validarSenha()">
       </label>
 
       <button id="botaocriar" type="submit">Criar conta</button>
@@ -55,10 +55,11 @@
       <a href="index.html">Já possui conta? Acesse aqui</a>
     </div>
   </div>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   
-  <script src="/scripts/validacoes/utils.js"></script>
-  <script src="/scripts/cadastro/signup.js"></script>
-  <script src="/scripts/login/spinner.js"></script>
+  <script src="scripts/validacoes/utils.js"></script>
+  <script src="scripts/cadastro/signup.js"></script>
+  <script src="scripts/login/spinner.js"></script>
 
 </body>
 

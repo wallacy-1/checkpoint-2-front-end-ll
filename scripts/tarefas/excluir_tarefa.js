@@ -28,12 +28,21 @@ function excluirTarefa(id) {
 
         ).then(
             resultado => {
-                alert(`Tarefa removida com SUCESSO !!!`);
-                location.reload();
+                Swal.fire({
+                    icon: 'success',
+                    title: 'REMOVER TAREFA',
+                    text: "Tarefa removida com SUCESSO !!!"
+                }).then(function(){
+                    location.reload();
+                })
             }
         )
 
         .catch(erro => { 
-            alert(erro);
+            Swal.fire({
+                icon: 'success',
+                title: 'REMOVER TAREFA',
+                text: erro
+            })
         })
     }}

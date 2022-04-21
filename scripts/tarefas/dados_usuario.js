@@ -42,8 +42,13 @@ fetch(link, header)
 .catch(
 
    error =>{
-       alert(error)
-       location.href = 'index.html'
+        Swal.fire({
+            icon: 'error',
+            title: 'ops...',
+            text: error
+        }).then(function(){
+            location.href = "index.html";
+          })
    }
 )
 

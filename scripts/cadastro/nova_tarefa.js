@@ -11,8 +11,11 @@ let task = {
 botaoinserir.addEventListener('click', function (evento) {
 
     if (camponovatarefa.value.trim() == "") {
-
-        alert('Preencha a descrição corretamente!');
+        Swal.fire({
+            icon: 'warning',
+            title: 'Oops...',
+            text: "Preencha a descrição corretamente!"
+          })
         return;
     }
 
@@ -47,12 +50,21 @@ botaoinserir.addEventListener('click', function (evento) {
 
         ).then(
             resultado => {
-                alert(`Tarefa: ${task.description} \n Foi criada com SUCESSO !!!`);
-                location.href = "tarefas.html"; //se deu tudo certo so manda o usuario para a tela login.html 
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Tarefa foi criada com sucesso !!!',
+                    text: `Tarefa: ${task.description} \n Foi criada`
+                  }).then(function(){
+                    location.href = "tarefas.html"; //se deu tudo certo so manda o usuario para a tela login.html 
+                  })
             }
         )
 
         .catch(erro => { // se deu erro cai aqui no catch e volta com um alert msg do erro
-            alert(erro);
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: erro
+              })
         })
 })

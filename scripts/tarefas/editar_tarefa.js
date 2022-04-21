@@ -41,14 +41,56 @@ function fetchEditarTarefa(id) {
     let descricao = validarEditarTarefa(id);
 
     if(descricao === false){
-        alert("Preencha o campo descrição corretamente !!!");
+        Swal.fire({
+            icon: 'warning',
+            title: 'CAMPO TITULO TAREFA',
+            text: "Preencha o campo titulo corretamente !!!"
+        })
         return;
     }
 
-    if (!confirm(`Tem certeza que deseja alterar \nDescrição antiga: ${localStorage.getItem("descAnterior")} \nPara: ${descricao}`)) {
-        return;
-    }
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success',
+          cancelButton: 'btn btn-danger     m-left'
+        },
+        buttonsStyling: false
+      })
+      
+      swalWithBootstrapButtons.fire({
+        html: `Deseja alterar <br>Descrição Antiga: ${localStorage.getItem("descAnterior")} <br>Descrição Nova: ${descricao}`,
+        title: 'Tem certeza ?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Sim',
+        cancelButtonText: 'Não',
+        reverseButtons: false
+      }).then((result) => {
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire(
+            'Alterada com sucesso !',
+            'A descrição antiga foi alterada :D',
+            'success'
+          ).then(function(){
+            fazerFetch(descricao, id)
+          })
 
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            'Alteração desfeita',
+            'A descrição antiga ira permanecer :D',
+            'error'
+          )
+          return;
+        }
+      })
+
+}
+
+function fazerFetch(descricao, id){
     let linkEditarTarefa = `https://ctd-todo-api.herokuapp.com/v1/tasks/${id}`;
 
     let body = {
@@ -80,14 +122,24 @@ function fetchEditarTarefa(id) {
 
         ).then(
             resultado => {
-                alert(`Tarefa: ${descricao}\nFoi editada com SUCESSO !!!`);
-                localStorage.removeItem("descAnterior");
-                localStorage.removeItem("tf");
-                location.reload();
+                Swal.fire({
+                    icon: 'success',
+                    title: 'CAMPO TITULO TAREFA',
+                    text: "Preencha o campo titulo corretamente !!!"
+                }).then(function(){
+                    localStorage.removeItem("descAnterior");
+                    localStorage.removeItem("tf");
+                    location.reload();
+                  })
+
             }
         )
 
         .catch(erro => { // se deu erro cai aqui no catch e volta com um alert msg do erro
-            alert(erro);
+            Swal.fire({
+                icon: 'error',
+                title: 'ERRO AO EDITAR TAREFA',
+                text: erro
+            })
         })
 }

@@ -33,11 +33,21 @@ function checkTarefa(id) {
 
         ).then(
             resultado => {
-                location.reload();
+                Swal.fire({
+                    icon: 'success',
+                    title: 'TAREFA COMPLETADA',
+                    text: "A tarefa foi completada com sucesso, PARABENS :D"
+                }).then(function(){
+                    location.reload();
+                })
             }
         )
 
         .catch(erro => { // se deu erro cai aqui no catch e volta com um alert msg do erro
-            alert(erro);
+            Swal.fire({
+                icon: 'error',
+                title: 'ops...',
+                text: erro
+            })
         })
 }
