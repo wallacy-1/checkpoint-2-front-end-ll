@@ -38,7 +38,7 @@ function removerSkeletons() {
     let skeleton = document.getElementById("skeleton");
 
     let tarefa = document.querySelector(".skeleton_begin");
-    console.log(tarefa);
+    
     skeleton.removeChild(tarefa);
 
 }
