@@ -1,10 +1,11 @@
 onload = function(){
+    mostrarSkeletons();
+
     if(segurancaToken() == true){
         return;
     }
 
     dadosUsuario();
-    mostrarSkeletons();
 
     if(localStorage.getItem("login") == 1){
         localStorage.removeItem("login");
